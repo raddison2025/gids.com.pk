@@ -1,18 +1,19 @@
+require("dotenv").config(); // Load environment variables from .env
 const mysql = require("mysql2");
 
-// Create a MySQL connection pool
+// Create a MySQL connection pool using environment variables
 const pool = mysql.createPool({
-  host: "dpg-d0a63jruibrs73b2btd0-a",      // MySQL Server Host
-  user: "aaa_57eg_user",         // MySQL Username
-  password: "hfNyXAKr06oY7SxEzxenaDxDf9e9nGTK",       // MySQL Password
-  database: "aaa_57eg",      // MySQL Database Name
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
-  connectionLimit: 10,    // Maximum number of connections
+  connectionLimit: 10,
   queueLimit: 0,
 });
 
 // Convert pool to use Promises for async/await support
-const db = pool.promise(); // This allows using async/await with `db.query()`
+const db = pool.promise();
 
 // Function to create the 'users' table if it doesn't exist
 async function createUsersTable() {
@@ -40,5 +41,5 @@ pool.on("error", (err) => {
   console.error("❌ MySQL Connection Error:", err);
 });
 
-// Export the database connection pool for use in other files
+// Export the database connection pool
 module.exports = { db, pool };
