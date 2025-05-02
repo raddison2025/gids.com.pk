@@ -2,10 +2,10 @@ const mysql = require("mysql2");
 
 // Create a MySQL connection pool
 const pool = mysql.createPool({
-  host: "localhost",      // MySQL Server Host
-  user: "sultan",         // MySQL Username
-  password: "toor",       // MySQL Password
-  database: "allah",      // MySQL Database Name
+  host: "dpg-d0a63jruibrs73b2btd0-a",      // MySQL Server Host
+  user: "aaa_57eg_user",         // MySQL Username
+  password: "hfNyXAKr06oY7SxEzxenaDxDf9e9nGTK",       // MySQL Password
+  database: "aaa_57eg",      // MySQL Database Name
   waitForConnections: true,
   connectionLimit: 10,    // Maximum number of connections
   queueLimit: 0,
