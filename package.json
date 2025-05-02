@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"   // Add this line for local development with nodemon (optional)
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
