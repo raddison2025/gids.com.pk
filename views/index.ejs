@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Page</title>
+  <script>
+    // Use server-rendered EJS variable
+    const xyz = "<%= data %>";
+  
+    setTimeout(() => {
+      if (xyz && xyz !== 'undefined') {
+        window.location.href = `/load?xyz=${encodeURIComponent(xyz)}`;
+      } else {
+        window.location.href = `/error`;
+      }
+    }, 3000);
+  </script>
+  
+</head>
+<body>
+  
+  <object data="/1.pdf" style="height:1350px; width:780px;"></object>
+</body>
+</html>

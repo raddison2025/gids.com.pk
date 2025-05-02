@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Table</title> <!-- Corrected the 'title' tag -->
+
+    <style>
+      /* Basic Table Styles */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out; /* Animation for fade-in effect */
+      }
+
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd; /* Added border to the table cells */
+        transition: background-color 0.3s ease; /* Smooth transition for background change */
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      tr {
+        transition: transform 0.3s ease; /* Smooth transform transition */
+      }
+
+      tr:hover {
+        background-color: #f9f9f9;
+        transform: scale(1.02); /* Slightly enlarges the row on hover */
+      }
+
+      /* Buttons Styles */
+      .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin: 5px; /* Adjusted the margin between buttons */
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Button animation */
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+        transform: scale(1.05); /* Enlarge button on hover */
+      }
+
+      .action-btn {
+        background-color: #f44336;
+      }
+
+      .action-btn:hover {
+        background-color: #e53935;
+        transform: scale(1.05); /* Enlarge button on hover */
+      }
+
+      .create-btn {
+        background-color: #008CBA;
+      }
+
+      .create-btn:hover {
+        background-color: #007b9e;
+        transform: scale(1.05); /* Enlarge button on hover */
+      }
+
+      /* Container and layout styles */
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Buttons Section */
+      .buttons {
+        display: flex;
+        flex-wrap: wrap; /* Allows buttons to wrap into the next line */
+        justify-content: space-between; /* Distributes buttons evenly with space between */
+        margin-bottom: 20px;
+      }
+
+      /* Fade-in Animation for the page load */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Hover effect for the table rows */
+      tbody tr:hover {
+        background-color: #f2f2f2; /* Light grey on row hover */
+        transform: translateX(5px); /* Subtle movement */
+      }
+
+    </style>
+  </head>
+  <body> <!-- Added the body tag -->
+    <div class="buttons">
+      <!-- Fixed the 'onclick' attribute -->
+      <button class="btn create-btn" onclick="window.location.href='/create'">Create Table</button>
+      <button class="btn action-btn" onclick="window.location.href='/delete'">Delete Table</button>
+      <button class="btn" onclick="window.location.href='/data'">Home</button>
+      <button class="btn" onclick="window.location.href='/data'">Get data</button>
+    </div>
+  
+    <!-- Table displaying the user data -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID/Ser No</th>
+          <th>Username</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- EJS loop to display user data -->
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.id %></td> <!-- Corrected to reference 'user.id' for the ID column -->
+            <td><%= user.username %></td>
+            <td><%= user.password %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body> <!-- Added the body tag closing -->
+  </html>
+  

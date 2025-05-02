@@ -1,0 +1,1 @@
+function t(i,n){if(n=n||[],"undefined"==typeof Dictionary||!Dictionary)return i;void 0!==Dictionary[i]&&Dictionary[i]&&(i=Dictionary[i]);for(var r in n)i=i.replace(new RegExp(r,"g"),n[r]);return i}
