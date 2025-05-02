@@ -1,12 +1,13 @@
-require("dotenv").config(); // Load environment variables from .env
+require('dotenv').config();
 const mysql = require("mysql2");
 
-// Create a MySQL connection pool using environment variables
+// Create a MySQL connection pool
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,       // Database Host from .env
+  user: process.env.DB_USER,       // Database User from .env
+  password: process.env.DB_PASSWORD,  // Database Password from .env
+  database: process.env.DB_NAME,   // Database Name from .env
+  port: process.env.DB_PORT || 3306,  // Default to 3306 if not provided
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -41,5 +42,5 @@ pool.on("error", (err) => {
   console.error("❌ MySQL Connection Error:", err);
 });
 
-// Export the database connection pool
+// Export the database connection pool for use in other files
 module.exports = { db, pool };
